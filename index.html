@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zakaria AI</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080d18;color:white;font-family:Arial,sans-serif}
+header{padding:20px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #202b40}
+.logo{font-size:24px;font-weight:bold;color:#55c8ff}
+button{cursor:pointer;border:0;border-radius:12px;padding:12px;background:#147ee9;color:white;font-size:15px}
+.lang{background:#1a263b}
+main{max-width:850px;margin:35px auto;padding:15px;text-align:center}
+h1{font-size:34px;color:#65caff}
+.sub{color:#a9b5ca;line-height:1.8}
+.panel{background:#111c2e;border:1px solid #263a56;border-radius:18px;padding:18px;margin-top:25px}
+textarea{width:100%;height:110px;background:#091323;color:white;border:1px solid #344967;border-radius:12px;padding:14px;font-size:16px;resize:vertical}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.actions button{flex:1}
+#answer{white-space:pre-wrap;text-align:start;line-height:1.8;color:#bce5ff;margin-top:15px}
+.tools{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
+.tool{background:#111c2e;border:1px solid #263a56;border-radius:15px;padding:20px}
+.tool b{display:block;color:#65caff;margin-bottom:8px}
+footer{padding:25px;text-align:center;color:#8493a9;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">✦ Zakaria AI</div>
+<button class="lang" onclick="changeLang()" id="lang">English</button>
+</header>
+
+<main>
+<h1 id="title">به Zakaria AI خوش آمدید 🤖</h1>
+<p class="sub" id="subtitle">دستیار هوشمند شما برای نوشتن، ترجمه و ایده‌پردازی</p>
+
+<div class="panel">
+<textarea id="question" placeholder="سوال یا درخواست خود را بنویسید..."></textarea>
+<div class="actions">
+<button onclick="ask()" id="send">ارسال ✦</button>
+<button class="lang" onclick="clearChat()" id="clear">پاک کردن</button>
+</div>
+<div id="answer"></div>
+</div>
+
+<h2 id="toolsTitle">ابزارهای هوشمند</h2>
+<div class="tools">
+<div class="tool"><b>✍️ تولید متن</b><span id="t1">نوشتن متن و کپشن</span></div>
+<div class="tool"><b>🌍 ترجمه</b><span id="t2">ترجمه زبان‌ها</span></div>
+<div class="tool"><b>💡 ایده‌پردازی</b><span id="t3">ایده برای ویدیو</span></div>
+<div class="tool"><b>📱 شبکه‌های اجتماعی</b><span id="t4">عنوان و توضیحات</span></div>
+</div>
+</main>
+<footer>© 2026 Zakaria AI | Made with ✦</footer>
+
+<script>
+let english=false;
+function changeLang(){
+english=!english;
+document.documentElement.lang=english?"en":"fa";
+document.documentElement.dir=english?"ltr":"rtl";
+document.getElementById("lang").innerText=english?"فارسی":"English";
+document.getElementById("title").innerText=english?"Welcome to Zakaria AI 🤖":"به Zakaria AI خوش آمدید 🤖";
+document.getElementById("subtitle").innerText=english?"Your smart assistant for writing, translation and ideas":"دستیار هوشمند شما برای نوشتن، ترجمه و ایده‌پردازی";
+document.getElementById("question").placeholder=english?"Write your question here...":"سوال یا درخواست خود را بنویسید...";
+document.getElementById("send").innerText=english?"Send ✦":"ارسال ✦";
+document.getElementById("clear").innerText=english?"Clear":"پاک کردن";
+document.getElementById("toolsTitle").innerText=english?"AI Tools":"ابزارهای هوشمند";
+document.getElementById("t1").innerText=english?"Text and captions":"نوشتن متن و کپشن";
+document.getElementById("t2").innerText=english?"Language translation":"ترجمه زبان‌ها";
+document.getElementById("t3").innerText=english?"Video ideas":"ایده برای ویدیو";
+document.getElementById("t4").innerText=english?"Titles and descriptions":"عنوان و توضیحات";
+}
+function ask(){
+let q=document.getElementById("question").value.trim();
+if(!q)return;
+document.getElementById("answer").innerText=english?
+"Welcome! Zakaria AI is currently in demo mode. Real AI connection will be added soon.":
+"خوش آمدید! Zakaria AI فعلاً در حالت آزمایشی است. اتصال هوش مصنوعی واقعی در مرحله بعد اضافه می‌شود.";
+}
+function clearChat(){
+document.getElementById("question").value="";
+document.getElementById("answer").innerText="";
+}
+</script>
+</body>
+</html>
